@@ -1,0 +1,41 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Ingreso Usuario {% endblock %}
+
+{% block contenido %}
+    {% load static %}
+
+    <!--Contenido de la pagina:-->
+    <main class="form-signin align-middle">
+        <form action="" method="post">
+            {% csrf_token %}
+          <img class="mb-4 img-fluid" src="{% static 'media/img/gitlab.png' %}" alt="" width="72" height="57">
+          <h1 class="h3 mb-3 fw-normal">Inicie Sesión</h1>
+            {% if form.non_field_errors %}
+                <div class="alert alert-danger" role="alert">
+                    Usuario y/o Contraseña Incorrectos!!.
+                </div>
+            {% endif %}
+            {% if 'registro' in request.GET %}
+                <div class="alert alert-success" role="alert">
+                    Usuario Creado Correctamente!.
+                </div>
+            {% endif %}
+          <div class="form-floating">
+            <input type="text" name="username" class="form-control" id="id_username" placeholder="usuario">
+            <label for="id_username">Usuario</label>
+          </div>
+          <div class="form-floating">
+            <input type="password" name="password" class="form-control" id="id_password" placeholder="Password">
+            <label for="id_password">Password</label>
+          </div>
+    
+          <button class="w-100 btn btn-lg btn-primary" type="submit">Ingresar</button>
+          <hr>
+          <p class="d-flex">No estoy registrado,&nbsp;<a class="" style="text-decoration: none;" href="{% url 'singup' %}">Registrese</a></p>
+          <p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+        </form>
+      </main>
+
+
+{% endblock %}

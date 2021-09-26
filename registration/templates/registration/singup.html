@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Ingreso Usuario {% endblock %}
+
+{% block contenido %}
+    {% load static %}
+<style>
+    label{
+        display: none !important;
+    }
+    .errorlist{
+        color: red;
+    }
+    .helptext{
+        text-align: justify !important;
+        font-family: cursive;
+        font-size: small;
+    }
+    ul{
+        text-align: justify !important;
+        font-family: cursive;
+        font-size: small;
+    }
+    li{
+        list-style: none;
+    }
+</style>
+    <section class="container">
+           <main class="mt-1 row text-justify">
+               <div class="col-6 mt-5">
+                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, deleniti. Libero perspiciatis dolore rerum quas? Expedita mollitia alias blanditiis, voluptas voluptate beatae id iusto dolores saepe quas, natus numquam nostrum.
+               </div>
+               <div class="col-6">
+                <h2 class="text-primary">Registrese</h2>
+                <hr>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{form.as_p}}
+                        <hr>
+                        <button type="submit" class="btn btn-primary btn-lg col-6 offset-md-6">Registrar</button>
+                    </form>
+                    <p class="d-flex">Ya estoy registrado,&nbsp;<a class="" style="text-decoration: none;" href="{% url 'login' %}">Ingrese</a></p>
+               </div>
+           </main>
+    </section>
+
+    {% endblock %}

@@ -1,0 +1,6 @@
+API_SECRET=claveseguraparaelframework
+DBNAME=basededatosnombre
+DBUSER=usuario
+DBPASS=clavedebasededatos
+DBHOST=127.0.0.1
+DBPORT=5432
