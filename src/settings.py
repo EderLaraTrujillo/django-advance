@@ -142,5 +142,5 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Redirect para el login: defecto debe ir a: /accounts/profile/
-LOGIN_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
