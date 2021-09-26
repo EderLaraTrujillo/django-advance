@@ -29,7 +29,8 @@
             </li>
           {% else %}
             <li class="nav-item d-none d-md-inline-flex active">
-              <a class="py-2 nav-link" href="/admin/">Administración</a>
+              <!-- <a class="py-2 nav-link" href="/admin/">Administración</a> -->
+              <a class="py-2 nav-link" href="{% url 'profile' %}">Perfil</a>
               <a class="py-2 nav-link" href="{% url 'logout' %}">Salir</a>
             </li>
           {% endif %}
