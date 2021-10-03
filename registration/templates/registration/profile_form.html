@@ -11,7 +11,8 @@
                 <h4 class="mt-3 text-info">¿Por qué colocar esta información?</h4>
                 <img src="{% static 'media/img/gifPromo.gif' %}" class="img-fluid mt-5 mb-3" alt="">
                 <p class="text-light mb-3"><strong>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, ipsa perferendis placeat commodi dolor natus ullam consequatur, inventore, hic a soluta error culpa fugit! Earum deleniti eaque dolorum corrupti odit.
+                    Esta información corresponde a la presentación que tendremos dentro del aplicativo. Otros usuarios pueden ver esta información
+                    y tomar la decisión de contactarte.
                 </strong></p>
             </div>
             <div class="col-8 mt-3">
@@ -40,6 +41,10 @@
                                 <img src="{% static 'media/img/nouser.png' %}" alt="Imagen de Perfil " class="img-fluid">
                                 {{form.avatar}}
                             {% endif %}
+                            <!-- Accesos a cambio de contraseña y de correo Electrónico -->
+                            <hr>
+                            <a type="button" class="btn btn-outline-dark col-12 mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambiar Correo Electrónico">ederlatru@mail.com</a>
+                            <a type="button" class="btn btn-outline-info col-12">Cambiar Contraseña</a>
                         </div>
                     </div>                   
                     <div class="d-grid gap-2 mt-4 d-md-flex justify-content-md-end">
