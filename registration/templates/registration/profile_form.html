@@ -14,9 +14,14 @@
                     Esta información corresponde a la presentación que tendremos dentro del aplicativo. Otros usuarios pueden ver esta información
                     y tomar la decisión de contactarte.
                 </strong></p>
+                <p class="text-light"><small>
+                    {% if request.user.first_name %}
+                        {{user.first_name}}
+                    {% endif %}
+                </small></p>
             </div>
             <div class="col-8 mt-3">
-                <h1 class="text-success text-center">Perfil de Usuario</h1>
+                <h1 class="text-success text-center">{{user.first_name}}  {{user.last_name}}</h1>
                 <form action="" method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
     
@@ -43,7 +48,7 @@
                             {% endif %}
                             <!-- Accesos a cambio de contraseña y de correo Electrónico -->
                             <hr>
-                            <a type="button" class="btn btn-outline-dark col-12 mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambiar Correo Electrónico">ederlatru@mail.com</a>
+                            <a type="button" class="btn btn-outline-dark col-12 mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambiar Correo Electrónico"> {{user.email}}</a>
                             <a type="button" class="btn btn-outline-info col-12">Cambiar Contraseña</a>
                         </div>
                     </div>                   
