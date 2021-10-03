@@ -106,3 +106,7 @@
       flex: 1;
     }
   }
+
+  .justificado {
+    text-align: justify !important;
+  }

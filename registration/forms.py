@@ -30,7 +30,7 @@ class ProfileForm(forms.ModelForm):
         widgets = {
             'avatar': forms.ClearableFileInput(attrs = {'class':'form-control mt-2'}),
             'profesion': forms.TextInput(attrs = {'class':'form-control mt-2', 'placeholder':'Profesión u Ocupación'}),
-            'biografia': forms.Textarea(attrs = {'class':'form-control mt-2', 'placeholder':'Biografia y/o Perfil Ocupacional'}),
+            'biografia': forms.Textarea(attrs = {'class':'form-control mt-2', 'placeholder':'Biografia y/o Perfil Ocupacional', 'rows':'9'}),
             'linkedinUrl': forms.URLInput(attrs = {'class':'form-control mt-2', 'placeholder':'LinkedIn Url'}),
         }
 

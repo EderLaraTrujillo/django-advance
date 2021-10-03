@@ -6,10 +6,10 @@
     {% load static %}
 
     <!--Contenido de la pagina:-->
-    <main class="form-signin align-middle">
+    <main class="form-signin align-middle text-center">
         <form action="" method="post">
             {% csrf_token %}
-          <img class="mb-4 img-fluid" src="{% static 'media/img/gitlab.png' %}" alt="" width="72" height="57">
+          <img class="mb-4 img-fluid text-center" src="{% static 'media/img/gitlab.png' %}" alt="" width="72" height="57">
           <h1 class="h3 mb-3 fw-normal">Inicie Sesión</h1>
             {% if form.non_field_errors %}
                 <div class="alert alert-danger" role="alert">

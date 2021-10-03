@@ -5,6 +5,52 @@
 {% block contenido %}
     {% load static %}
 
+    <section class="container">
+        <div class="row">
+            <div class="col-4 text-center bg-dark">
+                <h4 class="mt-3 text-info">¿Por qué colocar esta información?</h4>
+                <img src="{% static 'media/img/gifPromo.gif' %}" class="img-fluid mt-5 mb-3" alt="">
+                <p class="text-light mb-3"><strong>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, ipsa perferendis placeat commodi dolor natus ullam consequatur, inventore, hic a soluta error culpa fugit! Earum deleniti eaque dolorum corrupti odit.
+                </strong></p>
+            </div>
+            <div class="col-8 mt-3">
+                <h1 class="text-success text-center">Perfil de Usuario</h1>
+                <form action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
     
+                    <div class="row text-left">
+                        <div class="col-8 justificado">
+                            <label class="text-primary" for=""><strong>Descripción de tu Perfil</strong></label>
+                            {{form.biografia}}
+                            <label class="text-primary" for=""><strong>Profesión</strong></label>
+                            {{form.profesion}}
+                            <label class="text-primary" for=""><strong>Perfil en Linkedin</strong></label>
+                            {{form.linkedinUrl}}
+                        </div>
+                        <div class="col-4">
+                            {% if request.user.profile.avatar %}
+                                <img src="{{ request.user.profile.avatar.url }}" alt="Imagen de Perfil " class="img-fluid">
+                                <br>
+                                <p class="text-center">
+                                    ¿Borrar Imagen?
+                                    <input type="checkbox" name="avatar-clear" id="avatar-clear">
+                                </p>
+                            {% else %}
+                                <img src="{% static 'media/img/nouser.png' %}" alt="Imagen de Perfil " class="img-fluid">
+                                {{form.avatar}}
+                            {% endif %}
+                        </div>
+                    </div>                   
+                    <div class="d-grid gap-2 mt-4 d-md-flex justify-content-md-end">
+                        <button class="btn btn-danger me-md-2" type="reset">Cancelar</button>
+                        <button class="btn btn-primary" type="submit">Actualizar</button>
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+    </section>
+   
 
 {% endblock %}

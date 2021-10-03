@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # Mis aplicaciones:
     'core',
+    'ckeditor'
 ]
 
 MIDDLEWARE = [
@@ -144,3 +145,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Redirect para el login: defecto debe ir a: /accounts/profile/
 # LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+
+# Adicionamos ckeditor:
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Custom',
+        'toolbar_Custom': [
+            ['Bold', 'Italic', 'Underline'],
+            ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'],
+            ['Link', 'Unlink'],
+            ['RemoveFormat', 'Source']
+        ]
+    }
+}

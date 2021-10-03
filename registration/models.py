@@ -16,7 +16,7 @@ class Profile(models.Model):
     usuario = models.OneToOneField(User, on_delete=CASCADE)
     avatar = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
     profesion = models.TextField(verbose_name="Profesion", max_length=120, null=True)
-    biografia = RichTextField(verbose_name="Perfil del Usuario", blank=True)
+    biografia = models.TextField(verbose_name="Perfil del Usuario", blank=True)
     linkedinUrl = models.URLField(verbose_name='LinkedIn Url', max_length=200, null=True, blank=True)
 
     # Metadata del Modelo:
@@ -29,4 +29,4 @@ class Profile(models.Model):
 @receiver(post_save, sender=User)
 def ensure_profile_exists(sender, instance, **kwargs):
     if kwargs.get('created', False):
-        Profile.objects.get_or_create(user=instance)
+        Profile.objects.get_or_create(usuario=instance)
