@@ -17,6 +17,8 @@
                 <p class="text-light"><small>
                     {% if request.user.first_name %}
                         {{user.first_name}}
+                    {% else %}
+                        {{user.username}}
                     {% endif %}
                 </small></p>
             </div>
@@ -48,7 +50,11 @@
                             {% endif %}
                             <!-- Accesos a cambio de contraseña y de correo Electrónico -->
                             <hr>
-                            <a type="button" class="btn btn-outline-dark col-12 mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambiar Correo Electrónico"> {{user.email}}</a>
+                            {% if user.email %}
+                                <a type="button" class="btn btn-outline-dark col-12 mb-1" data-bs-toggle="tooltip" data-bs-placement="top" title="Cambiar Correo Electrónico"> {{user.email}}</a>
+                            {% else %}
+                                <a type="button" class="btn btn-outline-warning col-12 mb-1">Adicionar Datos</a>
+                            {% endif %}
                             <a type="button" class="btn btn-outline-info col-12">Cambiar Contraseña</a>
                         </div>
                     </div>                   
