@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block titulo %}Listado de perfiles{% endblock %}
+
+{% block contenido %}
+    {% load static %}
+
+    <section class="container">
+        <div class="row">
+            {% for profile in profile_list %}
+
+                <div class="card col">
+                    <h3 class="text-center text-info">{{ profile.profesion }}</h3>
+                    <img src="{{ profile.avatar.url }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5 class="card-title">{{ profile.usuario }}</h5>
+                    <p class="card-text">{{ profile.biografia }}</p>
+                    <a href="#" class="btn btn-primary">Ver Mas..</a>
+                    </div>
+                </div>
+
+            {% endfor %}
+        </div>
+    </section>
+
+
+{% endblock %}

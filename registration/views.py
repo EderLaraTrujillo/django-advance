@@ -45,4 +45,5 @@ class ProfileUpdate(UpdateView):
         return profile
 
 
-# Clase para hacer cambios de correo electrónico:
+# # Clase para hacer cambios de correo electrónico:
+# @method_decorator(login_required, name='dispatch')

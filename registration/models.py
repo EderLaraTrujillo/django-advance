@@ -11,6 +11,12 @@ def custom_upload_to(instance, filename):
     old_instance.avatar.delete()
     return 'profiles/' + filename
 
+# Función para cargar información tipo media: Imagenes de perfil:
+def custom_upload_to(instance, filename):
+    old_instance = Profile.objects.get(pk=instance.pk)
+    old_instance.avatar.delete()
+    return 'galeria/' + filename
+
 # Create your models here.
 class Profile(models.Model):
     usuario = models.OneToOneField(User, on_delete=CASCADE)
@@ -24,6 +30,18 @@ class Profile(models.Model):
         verbose_name = 'Perfil de Usuario'
         verbose_name_plural = 'Perfiles de Usuario'
         ordering = ['usuario__username']
+
+# class Photos(models.Model):
+#     usuario = models.OneToOneField(User, on_delete=CASCADE)
+#     consulta = models.OneToOneField(Albumes, on_delete=CASCADE)
+#     imgdiag = models.ImageField(upload_to=custom_upload_to, null=True, blank=True)
+#     nombFoto = models.TextField(verbose_name="Profesion", max_length=120, null=True)
+
+# class PhotoAlbum(models.Model):
+#     usuario = models.OneToOneField(User, on_delete=CASCADE)
+#     describe = models.TextField(verbose_name="Profesion", max_length=120, null=True)
+#     nombFoto = models.TextField(verbose_name="Profesion", max_length=120, null=True)
+
 
 # Función exclusiva para los usuarios logueados:
 @receiver(post_save, sender=User)

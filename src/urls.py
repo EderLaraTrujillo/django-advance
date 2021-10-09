@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+# Usar urls de mis otras apps:
+from profiles.urls import profiles_patterns
 # Importar settings para poder usar imagenes en el proyecto:
 from django.conf import settings
 
@@ -23,7 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # Admin de inicio de sesion:
     path('accounts/', include('django.contrib.auth.urls')),
-    path('accounts/', include('registration.urls'))
+    path('accounts/', include('registration.urls')),
+    # Traigo las urls de profiles_patterns:
+    path('profiles/', include(profiles_patterns))
 ]
 
 # Mostrar imagenes en modo DEBUG:

@@ -14,14 +14,8 @@
                     Esta información corresponde a la presentación que tendremos dentro del aplicativo. Otros usuarios pueden ver esta información
                     y tomar la decisión de contactarte.
                 </strong></p>
-                <p class="text-light"><small>
-                    {% if request.user.first_name %}
-                        {{user.first_name}}
-                    {% else %}
-                        {{user.username}}
-                    {% endif %}
-                </small></p>
             </div>
+            
             <div class="col-8 mt-3">
                 <h1 class="text-success text-center">{{user.first_name}}  {{user.last_name}}</h1>
                 <form action="" method="POST" enctype="multipart/form-data">
@@ -37,6 +31,11 @@
                             {{form.linkedinUrl}}
                         </div>
                         <div class="col-4">
+                            <div class="text-center">
+                                <h4 class="text-info">
+                                    {{user.username}}
+                                </h4>
+                            </div>
                             {% if request.user.profile.avatar %}
                                 <img src="{{ request.user.profile.avatar.url }}" alt="Imagen de Perfil " class="img-fluid">
                                 <br>
