@@ -2,8 +2,9 @@
 from django.urls import path
 
 from registration.models import Profile                         # Admin de Rutas
-from .views import ProfileListView                              # Vistas de la aplicación
+from .views import ProfileListView, ProfileDetailView           # Vistas de la aplicación
 
 profiles_patterns = ([
-    path('', ProfileListView.as_view(), name = 'Listado'),
+    path('', ProfileListView.as_view(), name = 'listado'),
+    path('<username>/', ProfileDetailView.as_view(), name = 'perfil'),
 ], "profiles")

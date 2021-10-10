@@ -4,24 +4,35 @@
 
 {% block contenido %}
     {% load static %}
-
+ 
     <section class="container">
         <div class="row">
-            {% for profile in profile_list %}
 
-                <div class="card col">
-                    <h3 class="text-center text-info">{{ profile.profesion }}</h3>
-                    <img src="{{ profile.avatar.url }}" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ profile.usuario }}</h5>
-                        <p class="card-text">{{ profile.biografia }}</p>
-                    <a href="#" class="btn btn-primary">Ver Mas..</a>
-                    </div>
-                </div>
+            <!-- Lista de Usuarios registrados -->
+            <div class="row row-cols-1 row-cols-md-4 g-4">
+                {% for profile in profile_list %} 
+                    <div class="col">
+                        <div class="card h-100">
+                        <img src="{{ profile.avatar.url }}" class="card-img-top" alt="Foto de Usuario">
+                        <div class="card-body">
+                            <h5 class="card-title text-capitalize">{{ profile.usuario }} - {{ profile.profesion }}</h5>
+                            <p class="card-text">{{ profile.biografia }}</p>
+                        </div>
+                        <div class="card-footer d-flex">
+                            <small class="text-muted">
+                                <a href="{% url 'profiles:perfil' profile.usuario %}" class="nav-link">Conoce a {{ profile.usuario }}</a>
+                            </small>
+                            <small class="text-muted">
+                                <a href="{{ profile.linkedinUrl }}" class="nav-link">Linkedin</a>
+                            </small>
+                        </div>
+                        </div>
+                  </div>
+                {% endfor %}
+            </div>
+            <!-- Fin de Listado -->
 
-            {% endfor %}
         </div>
     </section>
-
 
 {% endblock %}

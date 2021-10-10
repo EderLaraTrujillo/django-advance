@@ -11,3 +11,10 @@ class ProfileListView(ListView):
     # Paginación:
     # paginate_by = 8
 
+class ProfileDetailView(DetailView):
+    model = Profile
+    template_name = 'profiles/profile_detail.html'
+
+    # Función para retornar el detalle:
+    def get_object(self):
+        return get_object_or_404(Profile, usuario__username = self.kwargs['username'])
