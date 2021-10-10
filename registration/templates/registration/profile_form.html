@@ -4,7 +4,7 @@
 
 {% block contenido %}
     {% load static %}
-
+    
     <section class="container">
         <div class="row">
             <div class="col-4 text-center bg-dark">
@@ -24,7 +24,9 @@
                     <div class="row text-left">
                         <div class="col-8 justificado">
                             <label class="text-primary" for=""><strong>Descripción de tu Perfil</strong></label>
-                            {{form.biografia}}
+                            <div class="col">
+                                {{form.biografia}}
+                            </div>
                             <label class="text-primary" for=""><strong>Profesión</strong></label>
                             {{form.profesion}}
                             <label class="text-primary" for=""><strong>Perfil en Linkedin</strong></label>
